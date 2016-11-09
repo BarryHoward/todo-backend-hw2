@@ -12,6 +12,7 @@ class TodoListController {
     let userId = request.param('id')
     let data = request.only('name')
     data.user_id = userId
+    data.done = false
 
     let todoList = yield TodoList.create(data)
     response.status(201).json(todoList)
